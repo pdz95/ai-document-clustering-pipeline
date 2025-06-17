@@ -24,20 +24,7 @@ This production system is deployed on AWS cloud infrastructure.
 ├── AI Integration (OpenAI GPT-4 summarization)
 └── Infrastructure (AWS S3 + EC2 + Ubuntu + systemd)
 
-## Quick Start
-
-### Local Setup
-```bash
-# Clone repository
-git clone https://github.com/pdz95/ai-document-clustering-pipeline
-cd ai-document-clustering-pipeline
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run application
-streamlit run app.py --server.port=8083
-How It Works
+### How It Works
 
 Document upload - Upload 10-60 PDF files via Streamlit interface
 Text extraction - PyMuPDF extracts clean text from documents
@@ -71,10 +58,7 @@ json{
 Project Structure
 ai-document-clustering-pipeline/
 ├── app.py                    # Main Streamlit application
-├── lambda_handler.py         # AWS Lambda handler
 ├── requirements.txt          # Python dependencies
-├── dockerfile               # Docker for Lambda deployment
-├── pdf_organiser.sh         # Production deployment script
 ├── deployment/
 │   ├── core/
 │   │   ├── s3_handler.py           # S3 storage operations
