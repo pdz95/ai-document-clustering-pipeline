@@ -5,8 +5,6 @@ Intelligent PDF organization system using machine learning-powered semantic clus
 ## Live Demo
 🚀 **[View Live Application](http://3.94.54.203:8082)**
 
-This production system is deployed on AWS cloud infrastructure. 
-
 ## Key Features
 
 - **Semantic clustering** - Groups documents by content similarity using SentenceTransformers
@@ -24,20 +22,33 @@ This production system is deployed on AWS cloud infrastructure.
 ├── AI Integration (OpenAI GPT-4 summarization)
 └── Infrastructure (AWS S3 + EC2 + Ubuntu + systemd)
 
-### How It Works
+## How It Works
 
-Document upload - Upload 10-60 PDF files via Streamlit interface
-Text extraction - PyMuPDF extracts clean text from documents
-Embedding generation - SentenceTransformers creates semantic vectors
-Dimensionality reduction - UMAP reduces to 2D visualization space
-Clustering - HDBSCAN identifies thematic document groups
-AI summarization - GPT-4 generates cluster titles and summaries
-Organization - Creates downloadable ZIP with organized folders
+1. **Document upload** - Upload 10-60 PDF files via Streamlit interface
+2. **Text extraction** - PyMuPDF extracts clean text from documents
+3. **Embedding generation** - SentenceTransformers creates semantic vectors
+4. **Dimensionality reduction** - UMAP reduces to 2D visualization space
+5. **Clustering** - HDBSCAN identifies thematic document groups
+6. **AI summarization** - GPT-4 generates cluster titles and summaries
+7. **Organization** - Creates downloadable ZIP with organized folders
 
-Tech Stack
-CategoryTechnologiesFrontendStreamlit, PlotlyBackendPython 3.11, pandas, numpyML PipelineSentenceTransformers, UMAP, HDBSCANNLPPyMuPDF, LangChain, spaCyVector DBChromaDBAIOpenAI GPT-4 for summarizationCloudAWS Lambda, ECR, S3, EC2InfrastructureUbuntu 24.04, systemd, Docker
-Example Output
-json{
+## Tech Stack
+
+| Category | Technologies |
+|----------|-------------|
+| **Frontend** | Streamlit, Plotly |
+| **Backend** | Python 3.11, pandas, numpy |
+| **ML Pipeline** | SentenceTransformers, UMAP, HDBSCAN |
+| **NLP** | PyMuPDF, LangChain, spaCy |
+| **Vector DB** | ChromaDB |
+| **AI** | OpenAI GPT-4 for summarization |
+| **Cloud** | AWS Lambda, ECR, S3, EC2 |
+| **Infrastructure** | Ubuntu 24.04, systemd, Docker |
+
+## Example Output
+
+```json
+{
   "clusters": [
     {
       "cluster_id": 0,
@@ -55,10 +66,15 @@ json{
     }
   ]
 }
-Project Structure
+```
+
+## Project Structure
 ai-document-clustering-pipeline/
 ├── app.py                    # Main Streamlit application
+├── lambda_handler.py         # AWS Lambda handler
 ├── requirements.txt          # Python dependencies
+├── dockerfile               # Docker for Lambda deployment
+├── pdf_organiser.sh         # Production deployment script
 ├── deployment/
 │   ├── core/
 │   │   ├── s3_handler.py           # S3 storage operations
@@ -75,11 +91,39 @@ ai-document-clustering-pipeline/
     ├── text_processing.py          # Text extraction and cleaning
     ├── vector_store.py             # ChromaDB vector storage
     └── visualization.py            # UMAP plotting
-Performance Features
+    
+## Performance Features
 
-Scalable processing - Handles 10-60 documents efficiently
-Semantic accuracy - Uses state-of-the-art SentenceTransformers model
-Interactive clustering - Real-time parameter adjustment
-Organized output - Automatic folder structure creation
-Session management - Temporary storage with cleanup
+- **Scalable processing** - Handles 10-60 documents efficiently
+- **Semantic accuracy** - Uses state-of-the-art SentenceTransformers model
+- **Interactive clustering** - Real-time parameter adjustment
+- **Organized output** - Automatic folder structure creation
+- **Session management** - Temporary storage with cleanup
 
+## Use Cases
+
+Perfect for:
+- **Researchers** organizing academic papers by topic
+- **Legal teams** categorizing case documents
+- **Business analysts** grouping reports and studies
+- **Knowledge management** systems requiring automated organization
+- **Literature reviews** requiring thematic document analysis
+
+## Disclaimer
+
+This system is for **educational and demonstration purposes only**. Due to privacy concerns, please do not upload any private or sensitive data.
+
+## Executive Summary
+
+This project demonstrates:
+- **Advanced NLP skills** (embeddings, clustering, text processing)
+- **Full ML pipeline** (data → features → models → deployment)
+- **Cloud architecture** (serverless Lambda functions, containerization)
+- **Production deployment** (AWS infrastructure, monitoring, session management)
+- **User experience** (interactive visualization, file organization)
+- **AI integration** (GPT-4 API for intelligent summarization)
+
+Contact
+Author: Paweł Działak
+Email: pdzialak55@gmail.com
+Year: 2025
