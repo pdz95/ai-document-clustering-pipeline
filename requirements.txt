@@ -1,0 +1,16 @@
+sentence-transformers
+scikit-learn
+umap-learn
+chromadb
+PyMuPDF
+langchain-community
+langchain
+pandas
+numpy
+openai
+seaborn
+pysqlite3-binary
+streamlit
+plotly
+boto3
+
