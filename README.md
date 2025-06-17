@@ -15,12 +15,14 @@ Intelligent PDF organization system using machine learning-powered semantic clus
 - **Real-time processing** - Upload 10-60 PDFs and get instant clustering results
 
 ## Architecture
+```
 ├── Frontend (Streamlit + Plotly visualization)
 ├── Backend (AWS Lambda + ECR containers)
 ├── ML Pipeline (SentenceTransformers + UMAP + HDBSCAN)
 ├── Vector Storage (ChromaDB embeddings)
 ├── AI Integration (OpenAI GPT-4 summarization)
 └── Infrastructure (AWS S3 + EC2 + Ubuntu + systemd)
+```
 
 ## How It Works
 
