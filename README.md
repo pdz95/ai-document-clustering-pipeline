@@ -74,10 +74,7 @@ Intelligent PDF organization system using machine learning-powered semantic clus
 ```
 ai-document-clustering-pipeline/
 ├── app.py                    # Main Streamlit application
-├── lambda_handler.py         # AWS Lambda handler
 ├── requirements.txt          # Python dependencies
-├── dockerfile               # Docker for Lambda deployment
-├── pdf_organiser.sh         # Production deployment script
 ├── deployment/
 │   ├── core/
 │   │   ├── s3_handler.py           # S3 storage operations
