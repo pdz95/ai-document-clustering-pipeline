@@ -71,6 +71,7 @@ Intelligent PDF organization system using machine learning-powered semantic clus
 ```
 
 ## Project Structure
+```
 ai-document-clustering-pipeline/
 ├── app.py                    # Main Streamlit application
 ├── lambda_handler.py         # AWS Lambda handler
@@ -93,7 +94,7 @@ ai-document-clustering-pipeline/
     ├── text_processing.py          # Text extraction and cleaning
     ├── vector_store.py             # ChromaDB vector storage
     └── visualization.py            # UMAP plotting
-    
+```
 ## Performance Features
 
 - **Scalable processing** - Handles 10-60 documents efficiently
