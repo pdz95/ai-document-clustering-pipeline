@@ -8,8 +8,6 @@ from .clustering import Clustering
 from .visualization import UMAPVisualization
 from .summarization import OpenAISummarizer
 
-#file_path = Path(r"C:\Users\pawel\OneDrive\Python projekty\PDF_organiser\pdf\test")
-#file_path = Path(r"C:\Users\pawel\OneDrive\Soil\Papers")
 pdf_files = list(file_path.glob("*.pdf"))
 
 files_loades = FileLoader(pdf_files).load_files()
