@@ -43,13 +43,11 @@ class ClusterSummary:
         cluster_mask = self.clustered_vectors['HDBCLUSTER'] == cluster_id
         cluster_indices = self.clustered_vectors[cluster_mask].index.tolist()
 
-        # Pobierz dokumenty z ograniczeniem znaków
         truncated_docs = [all_docs['documents'][i][:max_chars_per_doc] for i in cluster_indices]
         combined_text = " ".join(truncated_docs)
 
         ai_result = OpenAISummarizer(combined_text)._open_AI_API()
-
-        # Dodaj AI wyniki do danych klastra
+        
         cluster_data = self.clustered_vectors[cluster_mask].copy()
         cluster_data['filename'] = [all_metadata['metadatas'][i]['filename'] for i in cluster_indices]
         cluster_data['cluster_title'] = ai_result['title']
@@ -63,7 +61,7 @@ class ClusterSummary:
         results = []
 
         for cluster_id in self.clustered_vectors['HDBCLUSTER'].unique():
-            if cluster_id == -1:  # pomiń noise
+            if cluster_id == -1:  # exclude outliers
                 continue
 
             print(f"Przetwarzam klaster {cluster_id}...")
