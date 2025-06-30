@@ -14,7 +14,6 @@ class CreateVectorStore:
 
     def _save_to_vector_store(self) -> None:
         for doc_data in self.raw_data:
-            # Sprawdź czy embedding istnieje
             if doc_data.embedding is None:
                 logger.warning(f"Skipping {doc_data.filename} - no embedding")
                 continue
@@ -33,7 +32,6 @@ class CreateVectorStore:
     def create_vector_store(self) -> chromadb.api.models.Collection.Collection:
         collection_name = "papers"
 
-        # Sprawdź czy kolekcja istnieje i usuń ją
         try:
             existing_collections = self.client.list_collections()
             collection_exists = any(col.name == collection_name for col in existing_collections)
@@ -44,7 +42,7 @@ class CreateVectorStore:
         except Exception as e:
             print(f"Błąd podczas sprawdzania/usuwania kolekcji: {e}")
 
-        # Utwórz nową kolekcję
+
         self.collection = self.client.create_collection(collection_name)
         self._save_to_vector_store()
         return self.collection
