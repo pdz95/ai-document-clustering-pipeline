@@ -31,7 +31,7 @@ class TextExtractorCleaner:
                 cleaned_text = cleaned_result[0]
 
                 if isinstance(cleaned_text, str):
-                    return " ".join(cleaned_text.split())  # Usuń nadmiarowe spacje
+                    return " ".join(cleaned_text.split()) 
                 elif isinstance(cleaned_text, list):
                     return " ".join(cleaned_text)
 
@@ -50,7 +50,6 @@ class TextExtractorCleaner:
 
             if page_texts:
                 try:
-                    # Przetwórz wszystkie strony naraz (bardziej wydajne niż pojedynczo)
                     cleaned_results = self.cleaner.clean(page_texts)
 
                     processed_pages = []
@@ -64,7 +63,7 @@ class TextExtractorCleaner:
 
                 except Exception as e:
                     logger.warning(f"Batch processing failed for {doc_data.filename}: {e}")
-                    # Fallback do przetwarzania pojedynczego
+
                     all_pages_text = []
                     for document in doc_data.content:
                         cleaned = self._clean_single_text(document.page_content)
