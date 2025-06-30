@@ -10,7 +10,6 @@ class TextExtractorCleaner:
 
     def clean_texts(self) -> list[DocumentData]:
         for doc_data in self.texts:
-            # Połącz wszystkie strony w jeden tekst
             all_text = " ".join([doc.page_content for doc in doc_data.content])
             doc_data.cleaned_text = all_text.strip()
 
