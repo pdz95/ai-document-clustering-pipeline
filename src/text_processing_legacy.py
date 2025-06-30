@@ -1,6 +1,6 @@
 
 import logging
-from .data_loading import DocumentData  # Względny import
+from .data_loading import DocumentData 
 import spacy
 from spacy_cleaner import Cleaner, processing
 logger = logging.getLogger(__name__)
@@ -45,7 +45,6 @@ class TextExtractorCleaner:
         logger.info(f"Starting text cleaning for {len(self.texts)} documents...")
 
         for doc_data in self.texts:
-            # Batch processing
             page_texts = [doc.page_content for doc in doc_data.content if doc.page_content.strip()]
 
             if page_texts:
